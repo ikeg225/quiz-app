@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Palaquin";
+  src: url("../fonts/Palanquin-SemiBold.ttf");
+}
+
+@font-face {
+  font-family: "Roboto Regular";
+  src: url("../fonts/Roboto-Regular.ttf");
+}
+
+html, body {
+  margin: 0px;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+h1 {
+  font-family: "Palaquin";
+}
+
+.quizApp {
+  display: flex;
+  height: 100%;
+}
+
+.header {
+  width: 20%
+}
+
+.app {
+  background-color: black;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}

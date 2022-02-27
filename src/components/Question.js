@@ -1,25 +1,30 @@
-function shuffleOptions(array) {
-    for (var i = array.length - 1; i > 0; i--) {
-        var j = Math.floor(Math.random() * (i + 1));
-        var temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
+import '../css/question.css';
+
+export default function Question({ question, func, options, selected, explain, correct }) {
+
+    function buttonClass(option) {
+        if (explain) {
+            if (option === correct) {
+                return "selected"
+            } else if (option === selected) {
+                return "wrongSelection"
+            }
+        } else {
+            if (option === selected) {
+                return "selected"
+            }
+        }
+        return "notSelected"
     }
-}
-
-export default function Question({ quiz, func }) {
-
-    let options = quiz.options
-    shuffleOptions(options)
 
     return (
         <div className="question">
-            <h1>{quiz.question}</h1>
-            <div>
+            <h1>{question.question}</h1>
+            <div className="options">
                 {options.map(option => 
-                    <label key={option}>
+                    <label key={option} className={buttonClass(option)}>
                         <input type="radio" name="question" value={option}
-                        onClick={func}/> 
+                        onClick={func} disabled="disabled" disabled={explain ? "disabled" : ""}/> 
                         {option}
                     </label>
                 )}
