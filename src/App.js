@@ -1,16 +1,21 @@
 import Question from './components/Question';
 import Results from './components/Results';
+import QuizTop from './components/QuizTop';
 import { useState } from 'react';
-import { quiz } from './functions';
+import { getQuiz } from './functions';
 import './css/app.css';
 
+const url = new URL(window.location.href);
+const search = url.searchParams.get("search");
+
 let score = []
-const quizLength = quiz.length;
+const quiz = getQuiz(search)
+const quizLength = quiz[0].length;
 
 function App() {
   
   const [selected, setSelected] = useState("")
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
   const question = quiz[count]
   const [none, setNone] = useState(true)
   const [exp, setExp] = useState(false) 
@@ -35,7 +40,7 @@ function App() {
 
   function nextQuestion() {
     setExp(false)
-    if (quizLength === (count + 1)) {
+    if (quizLength === count) {
       setResult(true)
     } else {
       setOptions(quiz[count + 1].options.sort())
@@ -47,16 +52,17 @@ function App() {
 
   function restartQuiz() {
     score = []
-    setCount(0)
+    setCount(1)
     setNone(true)
     setExp(false)
-    setOptions(quiz[0].options.sort())
+    setOptions(quiz[1].options.sort())
     setResult(false)
     setSelected("")
   }
 
   return (
     <div className="app">
+      <QuizTop name={quiz[0].name} length={quizLength} currentQuestion={count} score={score}/>
       {!result && <form onSubmit={submitAnswer}>
         <Question question={question} func={selectedOption} options={options} 
         selected={selected} explain={exp} correct={question.answer}/>
