@@ -6,7 +6,11 @@
 
 .question h1 {
     color: white;
-    font-size: 35px;
+    font-size: 30px;
+    width: 550px;
+    line-height: 40px;
+    text-align: left;
+    margin-bottom: 60px;
 }
 
 .options {

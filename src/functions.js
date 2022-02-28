@@ -1,7 +1,7 @@
 const lakers = [
     {
         name: "How Well Do You Know The Lakers?",
-        length: 2
+        length: 20
     },
     {
         num: 1,
@@ -13,6 +13,150 @@ const lakers = [
     },
     {
         num: 2,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 3,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 4,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 5,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 6,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 7,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 8,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 9,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 10,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 11,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 12,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 13,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 14,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 15,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 16,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 17,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 18,
+        question: "What state was Kobe Bryant born in?",
+        picture: "",
+        options: ["Pennsylvania", "New York", "Georgia", "California"],
+        answer: "Pennsylvania",
+        explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
+    },
+    {
+        num: 19,
+        question: "What WNBA team did Kobe's father coach?",
+        picture: "",
+        options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
+        answer: "Los Angeles Sparks",
+        explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
+    },
+    {
+        num: 20,
         question: "What state was Kobe Bryant born in?",
         picture: "",
         options: ["Pennsylvania", "New York", "Georgia", "California"],
