@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Palaquin";
-  src: url("../fonts/Palanquin-SemiBold.ttf");
+  src: url("../fonts/palanquin-semibold-webfont.woff");
 }
 
 @font-face {
   font-family: "Roboto Regular";
-  src: url("../fonts/Roboto-Regular.ttf");
+  src: url("../fonts/roboto-regular-webfont.woff");
 }
 
 :root {
