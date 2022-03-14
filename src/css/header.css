@@ -1,0 +1,49 @@
+.header {
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    text-align: center;
+}
+
+.links {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50%;
+    height: 100%;
+    gap: 20px;
+}
+
+.links li {
+    font-size: var(--header-option-button-explain);
+    font-family: "Roboto Regular";
+    align-self: center;
+    cursor: pointer;
+}
+
+.header h2 {
+    font-size: 12px;
+}
+
+@media screen and (max-width: 1024px) {
+    .header h2 {
+        font-size: 10px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .links {
+        margin-top: 80%;
+    }
+
+    .header h2 {
+        font-size: 8px;
+    }
+}

@@ -8,6 +8,16 @@
   src: url("../fonts/Roboto-Regular.ttf");
 }
 
+:root {
+  --quiz-content-width: 700px;
+  --global-green: #10C69B;
+  --global-grey: #C4C4C4;
+  --global-red: #9F2452;
+  --header-option-button-explain: 22px;
+  --question-explainHead: 35px;
+  --border-width: 10px;
+}
+
 html, body {
   margin: 0px;
   height: 100%;
@@ -19,6 +29,10 @@ html, body {
 
 h1 {
   font-family: "Palaquin";
+}
+
+h2 {
+  font-family: "Roboto Regular";
 }
 
 .quizApp {
@@ -38,4 +52,58 @@ h1 {
   align-items: center;
   justify-content: center;
   overflow: auto;
+  border-left: var(--border-width) solid #C4C4C4;
+  transition: 0.5s;
+}
+
+.app.activeGreen {
+  transition: 0.5s;
+  border-left: var(--border-width) solid #10C69B;
+}
+
+.app.activeRed {
+  transition: 0.5s;
+  border-left: var(--border-width) solid #9F2452;
+}
+
+.hover-anim {
+    display: inline-block;
+    position: relative;
+    color: black;
+}
+  
+.hover-anim:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-anim:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+@media screen and (max-width: 1024px) {
+  :root {
+    --quiz-content-width: 500px;
+    --header-option-button-explain: 16px;
+    --question-explainHead: 26px;
+    --border-width: 8px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --quiz-content-width: 450px;
+    --header-option-button-explain: 14px;
+    --question-explainHead: 22px;
+    --border-width: 7px;
+  }
 }

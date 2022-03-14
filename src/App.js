@@ -25,6 +25,7 @@ function App() {
   function selectedOption(event) {
     setSelected(event.target.value)
     setNone(false)
+    document.getElementsByClassName("app")[0].classList = "app activeGreen";
   }
 
   function submitAnswer(event) {
@@ -33,6 +34,7 @@ function App() {
       score = score.concat(1)
     } else {
       score = score.concat(0)
+      document.getElementsByClassName("app")[0].classList = "app activeRed";
     }
     setNone(false)
     setExp(true)
@@ -40,6 +42,7 @@ function App() {
 
   function nextQuestion() {
     setExp(false)
+    document.getElementsByClassName("app")[0].classList = "app";
     if (quizLength === count) {
       setResult(true)
     } else {
@@ -63,9 +66,9 @@ function App() {
   return (
     <div className="app">
       <div className="fixed">
-        <QuizTop name={quiz[0].name} length={quizLength} currentQuestion={count} score={score}/>
+        <QuizTop question={question} name={quiz[0].name} length={quizLength} currentQuestion={count} score={score}/>
         {!result && <form onSubmit={submitAnswer}>
-          <Question question={question} func={selectedOption} options={options} 
+          <Question func={selectedOption} options={options} 
           selected={selected} explain={exp} correct={question.answer}/>
           <button className={none ? "next" : (exp ? "none" : "next active")} type="submit">Submit</button>
         </form>}
@@ -73,9 +76,9 @@ function App() {
           <button className={exp ? "next active" : "none"} onClick={nextQuestion}>Next</button>
         </div>
         <div className={exp ? "explain active" : "explain"}>
-        <h2>Explanation:</h2>
-        <h2>{question.explanation}</h2>
-      </div>
+          <h2 className="explainHeader">Explanation:</h2>
+          <h2 className="explainContent">{question.explanation}</h2>
+        </div>
       </div>
       {result && <div className="results"><Results score={score.reduce(
         (previousValue, currentValue) => previousValue + currentValue, 

@@ -1,12 +1,12 @@
 .quiztop {
     display: flex;
     flex-direction: column;
-    width: 500px;
+    width: var(--quiz-content-width);
     margin-bottom: 10px;
 }
 
 .quizHeader {
-    color: #C4C4C4;
+    color: var(--global-grey);
     display: flex;
     flex-direction: row;
     align-items: flex-end;
@@ -15,7 +15,7 @@
 
 .quizName {
     width: 60%;
-    font-size: 20px;
+    font-size: var(--header-option-button-explain);
     line-height: 30px;
     margin: 0px;
 }
@@ -28,6 +28,7 @@
     flex-direction: row;
     justify-content: flex-end;
     align-items: flex-end;
+    font-size: 30px;
 }
 
 .progressBar {
@@ -38,26 +39,61 @@
 }
 
 .progressBar div {
-    width: 20px;
     height: 5px;
     border-radius: 10px;
 }
 
 .green {
-    background-color: #10C69B;
+    background-color: var(--global-green);
     transition: 0.5s;
 }
 
 .red {
-    background-color: #9F2452;
+    background-color: var(--global-red);
     transition: 0.5s;
 }
 
 .white {
-    background-color: #C4C4C4;
+    background-color: var(--global-grey);
 }
 
 .currentQuestion {
     color: white;
     font-size: 35px;
+}
+
+.quiztop .question {
+    color: white;
+    font-size: var(--question-explainHead);
+    line-height: 40px;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+    .currentQuestion {
+        font-size: 28px;
+    }
+
+    .questionNumber {
+        font-size: 24px;
+    }
+
+    .quizName {
+        line-height: 22px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .currentQuestion {
+        font-size: 26px;
+    }
+
+    .questionNumber {
+        font-size: 22px;
+    }
+
+    .progressBar div {
+        height: 4px;
+    }
 }

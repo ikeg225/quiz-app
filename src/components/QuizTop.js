@@ -1,9 +1,14 @@
 import '../css/quiztop.css'
+import { useRef, useLayoutEffect, useState } from 'react'
 
-export default function QuizTop({ name, length, currentQuestion, score }) {
+export default function QuizTop({ question, name, length, currentQuestion, score }) {
+    const divRef = useRef();
+    const[bars, setBars] = useState([]);
 
-    function bar() {
+    useLayoutEffect(() => {
+        const width = divRef.current.clientWidth;
         let bars = []
+
         for (let curr = 0; curr < length; curr++) {
             let color = ""
             if (curr >= score.length) {
@@ -11,10 +16,10 @@ export default function QuizTop({ name, length, currentQuestion, score }) {
             } else {
                 color = score[curr] == 1 ? "green" : "red";
             }
-            bars.push(<div key={curr} className={color}></div>)
+            bars.push(<div key={curr} className={color} style={{width: width}}></div>)
         }
-        return bars          
-    }
+        setBars(bars)
+    }, [score]);
 
     function questionFormat() {
         if (currentQuestion > 9) {
@@ -25,14 +30,15 @@ export default function QuizTop({ name, length, currentQuestion, score }) {
     }
 
     return (
-        <div className="quiztop">
+        <div className="quiztop" ref={divRef}>
             <div className="quizHeader">
                 <h1 className="quizName">{name}</h1>
                 <h1 className="questionNumber">{questionFormat()}/{length}</h1>
             </div>
             <div className="progressBar">
-                {bar()}
+                {bars}
             </div>
+            <h1 className="question">{question.question}</h1>
         </div>
     )
 }

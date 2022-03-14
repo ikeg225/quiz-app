@@ -1,6 +1,6 @@
 import '../css/question.css';
 
-export default function Question({ question, func, options, selected, explain, correct }) {
+export default function Question({ func, options, selected, explain, correct }) {
 
     function buttonClass(option) {
         if (explain) {
@@ -19,7 +19,6 @@ export default function Question({ question, func, options, selected, explain, c
 
     return (
         <div className="question">
-            <h1>{question.question}</h1>
             <div className="options">
                 {options.map(option => 
                     <label key={option} className={buttonClass(option)}>

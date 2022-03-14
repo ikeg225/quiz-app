@@ -4,18 +4,9 @@
     align-items: center;
 }
 
-.question h1 {
-    color: white;
-    font-size: 30px;
-    width: 550px;
-    line-height: 40px;
-    text-align: left;
-    margin-bottom: 60px;
-}
-
 .options {
     display:grid;
-    grid-template-columns: 300px 300px;
+    grid-template-columns: calc(var(--quiz-content-width) / 2) calc(var(--quiz-content-width) / 2);
     gap: 20px
 }
 
@@ -27,7 +18,7 @@
     display: flex;
     flex-direction: row;
     gap: 10px;
-    font-size: 20px;
+    font-size: var(--header-option-button-explain);
 }
 
 .selected {
@@ -37,20 +28,20 @@
 }
 
 .selected:hover {
-    border: 2px solid #C4C4C4;
-    color: #C4C4C4;
+    border: 2px solid var(--global-grey);
+    color: var(--global-grey);
     transition: 0.5s;
 }
 
 .selected.active {
-    border: 2px solid #10C69B;
-    color: #10C69B;
+    border: 2px solid var(--global-green);
+    color: var(--global-green);
     transition: 0.5s;
 }
 
 .selected.wrong {
-    border: 2px solid #9F2452;
-    color: #9F2452;
+    border: 2px solid var(--global-red);
+    color: var(--global-red);
     transition: 0.5s;
 }
 
@@ -70,12 +61,12 @@ input[type="radio"] {
 }
 
 .selected.active input[type="radio"] {
-    border: 0.15em solid #10C69B;
+    border: 0.15em solid var(--global-green);
     transition: 0.5s;
 }
 
 .selected.active input[type="radio"]:hover {
-    border: 0.15em solid #10C69B;
+    border: 0.15em solid var(--global-green);
 }
 
 .selected input[type="radio"] {
@@ -84,12 +75,12 @@ input[type="radio"] {
 }
 
 .selected input[type="radio"]:hover {
-    border: 0.15em solid #C4C4C4;
+    border: 0.15em solid var(--global-grey);
     transition: 0.5s;
 }
 
 .selected.wrong input[type="radio"] {
-    border: 0.15em solid #9F2452;
+    border: 0.15em solid var(--global-red);
     transition: 0.5s;
 }
 
@@ -103,11 +94,11 @@ input[type="radio"]::before {
 }
 
 .selected input[type="radio"]::before {
-    box-shadow: inset 1em 1em #10C69B;
+    box-shadow: inset 1em 1em var(--global-green);
 }
 
 .selected.wrong input[type="radio"]::before {
-    box-shadow: inset 1em 1em #9F2452;
+    box-shadow: inset 1em 1em var(--global-red);
     transition: 0.5s;
 }
 
