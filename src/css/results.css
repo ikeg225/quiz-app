@@ -1,7 +1,30 @@
 .results {
     text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+}
+
+.results.active {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    transition: opacity 2s;
 }
 
 .results h1 {
     color: white;
+    font-size: var(--question-explainHead);
+}
+
+.resultDetails {
+    display: none;
+}
+
+.resultDetails.active {
+    display: block;
+}
+
+.resultImg {
+    width: 80%;
 }

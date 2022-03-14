@@ -26,6 +26,7 @@ function App() {
     setSelected(event.target.value)
     setNone(false)
     document.getElementsByClassName("app")[0].classList = "app activeGreen";
+    document.getElementsByClassName("quiztop")[0].classList = "quiztop activeGreen";
   }
 
   function submitAnswer(event) {
@@ -35,6 +36,7 @@ function App() {
     } else {
       score = score.concat(0)
       document.getElementsByClassName("app")[0].classList = "app activeRed";
+      document.getElementsByClassName("quiztop")[0].classList = "quiztop activeRed";
     }
     setNone(false)
     setExp(true)
@@ -43,6 +45,7 @@ function App() {
   function nextQuestion() {
     setExp(false)
     document.getElementsByClassName("app")[0].classList = "app";
+    document.getElementsByClassName("quiztop")[0].classList = "quiztop";
     if (quizLength === count) {
       setResult(true)
     } else {
@@ -66,7 +69,7 @@ function App() {
   return (
     <div className="app">
       <div className="fixed">
-        <QuizTop question={question} name={quiz[0].name} length={quizLength} currentQuestion={count} score={score}/>
+        <QuizTop question={question} name={quiz[0].name} length={quizLength} currentQuestion={count} score={score} result={result}/>
         {!result && <form onSubmit={submitAnswer}>
           <Question func={selectedOption} options={options} 
           selected={selected} explain={exp} correct={question.answer}/>
@@ -76,13 +79,14 @@ function App() {
           <button className={exp ? "next active" : "none"} onClick={nextQuestion}>Next</button>
         </div>
         <div className={exp ? "explain active" : "explain"}>
-          <h2 className="explainHeader">Explanation:</h2>
-          <h2 className="explainContent">{question.explanation}</h2>
+            <h2 className="explainHeader">Explanation:</h2>
+            <h2 className="explainContent">{question.explanation}</h2>
         </div>
       </div>
-      {result && <div className="results"><Results score={score.reduce(
-        (previousValue, currentValue) => previousValue + currentValue, 
-        0)} length={quizLength}/><button className="next" onClick={restartQuiz}>Restart</button></div>}
+      <div className={result ? "results active" : "results"}>
+        <Results score={score.reduce((previousValue, currentValue) => previousValue + currentValue, 0)} length={quizLength} result={result}/>
+        <button className={result ? "next active" : "none"} onClick={restartQuiz}>Play Again</button>
+      </div>
     </div>
   );
 }

@@ -14,7 +14,7 @@
 }
 
 .quizName {
-    width: 60%;
+    width: 70%;
     font-size: var(--header-option-button-explain);
     line-height: 30px;
     margin: 0px;
@@ -95,5 +95,70 @@
 
     .progressBar div {
         height: 4px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .quiztop {
+        background-color: white;
+        width: 100%;
+        align-items: center;
+        transition: 0.5s;
+        border-bottom: var(--border-width) solid var(--global-grey);
+    }
+
+    .quiztop.activeGreen {  
+        transition: 0.5s;
+        border-bottom: var(--border-width) solid var(--global-green);
+    }
+
+    .quiztop.activeRed {
+        transition: 0.5s;
+        border-bottom: var(--border-width) solid var(--global-red);
+    }
+
+    .quizHeader, .quiztop .question, .progressBar {
+        width: var(--quiz-content-width);
+    }
+
+    .currentQuestion {
+        color: black;
+        font-size: 22px;
+    }
+    
+    .quiztop .question {
+        color: black;
+        line-height: 30px;
+        margin-bottom: 30px;
+    }
+
+    .quizName {
+        line-height: 15px;
+    }
+
+    .questionNumber {
+        font-size: 20px;
+    }
+
+    .progressBar div {
+        height: 3px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .quiztop .question {
+        line-height: 25px;
+    }
+
+    .currentQuestion {
+        font-size: 20px;
+    }
+
+    .questionNumber {
+        font-size: 18px;
+    }
+
+    .progressBar div {
+        height: 2.5px;
     }
 }

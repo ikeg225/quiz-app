@@ -1,8 +1,18 @@
 import logo from '../images/quiz.webp';
+import mobileLogo from '../images/logo.webp';
 import '../css/header.css';
 
 export default function Header() {
     const year = new Date().getFullYear();
+    const width = window.screen.width;
+
+    if (width <= 425) {
+        return (
+            <div className="logo mobile">
+                <a href="https://sportsquiz.org/" target="_blank" rel="noopener noreferrer"><img src={mobileLogo} alt="Sports Quiz Logo" width="50%" /></a>
+            </div>
+        )
+    }
 
     return (
         <div className="header">

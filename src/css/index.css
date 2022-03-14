@@ -52,18 +52,18 @@ h2 {
   align-items: center;
   justify-content: center;
   overflow: auto;
-  border-left: var(--border-width) solid #C4C4C4;
+  border-left: var(--border-width) solid var(--global-grey);
   transition: 0.5s;
 }
 
 .app.activeGreen {
   transition: 0.5s;
-  border-left: var(--border-width) solid #10C69B;
+  border-left: var(--border-width) solid var(--global-green);
 }
 
 .app.activeRed {
   transition: 0.5s;
-  border-left: var(--border-width) solid #9F2452;
+  border-left: var(--border-width) solid var(--global-red);
 }
 
 .hover-anim {
@@ -105,5 +105,40 @@ h2 {
     --header-option-button-explain: 14px;
     --question-explainHead: 22px;
     --border-width: 7px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .quizApp {
+    flex-direction: column;
+  }
+
+  :root {
+    --quiz-content-width: 300px;
+    --border-width: 5px;
+  }
+  
+  .app, .app.activeGreen, .app.activeRed {
+    border-left: none;
+  }
+
+  .app {
+    height: 100%;
+    overflow: visible;
+    justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  :root {
+    --quiz-content-width: 275px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  :root {
+    --quiz-content-width: 250px;
+    --header-option-button-explain: 12px;
+    --question-explainHead: 20px;
   }
 }

@@ -1,7 +1,7 @@
 import '../css/quiztop.css'
 import { useRef, useLayoutEffect, useState } from 'react'
 
-export default function QuizTop({ question, name, length, currentQuestion, score }) {
+export default function QuizTop({ question, name, length, currentQuestion, score, result }) {
     const divRef = useRef();
     const[bars, setBars] = useState([]);
 
@@ -30,7 +30,7 @@ export default function QuizTop({ question, name, length, currentQuestion, score
     }
 
     return (
-        <div className="quiztop" ref={divRef}>
+        <div className="quiztop" ref={divRef} style={ result ? { paddingBottom: "30px"} : {} }>
             <div className="quizHeader">
                 <h1 className="quizName">{name}</h1>
                 <h1 className="questionNumber">{questionFormat()}/{length}</h1>
@@ -38,7 +38,7 @@ export default function QuizTop({ question, name, length, currentQuestion, score
             <div className="progressBar">
                 {bars}
             </div>
-            <h1 className="question">{question.question}</h1>
+            {!result && <h1 className="question">{question.question}</h1>}
         </div>
     )
 }

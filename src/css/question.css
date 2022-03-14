@@ -106,3 +106,9 @@ input[type="radio"]::before {
 input[type="radio"]:checked::before {
     transform: scale(1);
 }
+
+@media screen and (max-width: 425px) {
+    .options {
+        grid-template-columns: var(--quiz-content-width);
+    }    
+}
