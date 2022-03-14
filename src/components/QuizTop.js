@@ -14,12 +14,12 @@ export default function QuizTop({ question, name, length, currentQuestion, score
             if (curr >= score.length) {
                 color = "white"
             } else {
-                color = score[curr] == 1 ? "green" : "red";
+                color = score[curr] === 1 ? "green" : "red";
             }
             bars.push(<div key={curr} className={color} style={{width: width}}></div>)
         }
         setBars(bars)
-    }, [score]);
+    }, [score, length]);
 
     function questionFormat() {
         if (currentQuestion > 9) {
