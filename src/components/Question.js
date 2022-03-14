@@ -5,16 +5,16 @@ export default function Question({ question, func, options, selected, explain, c
     function buttonClass(option) {
         if (explain) {
             if (option === correct) {
-                return "selected"
+                return "selected active"
             } else if (option === selected) {
-                return "wrongSelection"
+                return "selected wrong"
             }
         } else {
             if (option === selected) {
-                return "selected"
+                return "selected active"
             }
         }
-        return "notSelected"
+        return "selected"
     }
 
     return (
@@ -24,7 +24,7 @@ export default function Question({ question, func, options, selected, explain, c
                 {options.map(option => 
                     <label key={option} className={buttonClass(option)}>
                         <input type="radio" name="question" value={option}
-                        onClick={func} disabled="disabled" disabled={explain ? "disabled" : ""}/> 
+                        onClick={func} disabled={explain ? "disabled" : ""}/> 
                         {option}
                     </label>
                 )}

@@ -62,20 +62,21 @@ function App() {
 
   return (
     <div className="app">
-      <QuizTop name={quiz[0].name} length={quizLength} currentQuestion={count} score={score}/>
-      {!result && <form onSubmit={submitAnswer}>
-        <Question question={question} func={selectedOption} options={options} 
-        selected={selected} explain={exp} correct={question.answer}/>
-        {!exp && !none && <button className="next" type="submit">Submit</button>}
-      </form>}
-      {exp && 
-      <div className="explain">
+      <div className="fixed">
+        <QuizTop name={quiz[0].name} length={quizLength} currentQuestion={count} score={score}/>
+        {!result && <form onSubmit={submitAnswer}>
+          <Question question={question} func={selectedOption} options={options} 
+          selected={selected} explain={exp} correct={question.answer}/>
+          <button className={none ? "next" : (exp ? "none" : "next active")} type="submit">Submit</button>
+        </form>}
         <div className="nextQuestion">
-          <button className="next" onClick={nextQuestion}>Next</button>
+          <button className={exp ? "next active" : "none"} onClick={nextQuestion}>Next</button>
         </div>
+        <div className={exp ? "explain active" : "explain"}>
         <h2>Explanation:</h2>
         <h2>{question.explanation}</h2>
-      </div>}
+      </div>
+      </div>
       {result && <div className="results"><Results score={score.reduce(
         (previousValue, currentValue) => previousValue + currentValue, 
         0)} length={quizLength}/><button className="next" onClick={restartQuiz}>Restart</button></div>}

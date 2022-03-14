@@ -1,3 +1,12 @@
+.fixed {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
 .nextQuestion {
     text-align: center;
 }
@@ -6,6 +15,26 @@
     color: white;
     font-family: "Roboto Regular";
     width: 600px;
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    position: absolute;
+    top: 100%;
+}
+
+.explain.active {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+.explain.active h2 {
+    display: block;
+}
+
+.explain h2 {
+    display: none;
 }
 
 .next {
@@ -17,6 +46,29 @@
     margin-bottom: 20px;
     padding: 5px 30px;
     border-radius: 5px;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.next.active {
+    visibility: visible;
+    height: auto;
+    opacity: 1;
+    transition: opacity 2s;
+}
+
+.none {
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    height: 0;
+}
+
+.next.active:hover{
+    background-color: black;
+    color: white;
+    transition: 1s;
+    cursor: pointer;
 }
 
 form {

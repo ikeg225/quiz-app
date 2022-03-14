@@ -45,10 +45,12 @@
 
 .green {
     background-color: #10C69B;
+    transition: 0.5s;
 }
 
 .red {
     background-color: #9F2452;
+    transition: 0.5s;
 }
 
 .white {
