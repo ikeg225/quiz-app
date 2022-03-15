@@ -90,7 +90,6 @@ form {
     .explain.active {
         width: 100%;
         background-color: black;
-        transition: opacity 1s;
         display: flex;
         flex-direction: column;
         align-items: center;
