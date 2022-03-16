@@ -2,17 +2,11 @@ import Question from './components/Question';
 import Results from './components/Results';
 import QuizTop from './components/QuizTop';
 import { useState } from 'react';
-import { getQuiz } from './functions';
 import './css/app.css';
 
-const url = new URL(window.location.href);
-const search = url.searchParams.get("search");
-
 let score = []
-const quiz = getQuiz(search)
-const quizLength = quiz[0].length;
 
-function App() {
+function App({ quiz, quizLength }) {
   
   const [selected, setSelected] = useState("")
   const [count, setCount] = useState(1)

@@ -4,16 +4,23 @@ import './css/index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Header from './components/Header';
+import axios from 'axios';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <div className="quizApp">
-      <Header />
-      <App />
-    </div>
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const url = new URL(window.location.href);
+const search = url.searchParams.get("search");
+
+axios.get('/data/' + search).then(response => {
+  const data = response.data
+  ReactDOM.render(
+    <React.StrictMode>
+      <div className="quizApp">
+        <Header />
+        <App quiz={data} quizLength={data.length - 1} />
+      </div>
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
+})
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
