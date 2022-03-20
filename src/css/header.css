@@ -37,6 +37,10 @@
     font-size: 12px;
 }
 
+.logo.mobile {
+    display: none;
+}
+
 @media screen and (max-width: 1024px) {
     .header h2 {
         font-size: 10px;
@@ -54,8 +58,13 @@
 }
 
 @media screen and (max-width: 425px) {
+    .header {
+        display: none;
+    }
+
     .logo.mobile {
-        padding-top: 20px;
+        display: block;
+        padding-top: 30px;
         background-color: white;
     }
 }

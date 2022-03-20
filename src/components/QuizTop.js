@@ -38,7 +38,7 @@ export default function QuizTop({ question, name, length, currentQuestion, score
             <div className="progressBar">
                 {bars}
             </div>
-            {!result && <h1 className="question">{question.question}</h1>}
+            {!result && <h1 className="question">{question.title}</h1>}
         </div>
     )
 }

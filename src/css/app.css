@@ -41,6 +41,7 @@
     color: black;
     border: 2px solid white;
     font-size: var(--header-option-button-explain);
+    font-family: "Roboto Regular";
     margin-top: 30px;
     margin-bottom: 20px;
     padding: 5px 30px;

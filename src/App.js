@@ -9,8 +9,8 @@ let score = []
 function App({ quiz, quizLength }) {
   
   const [selected, setSelected] = useState("")
-  const [count, setCount] = useState(1)
-  const question = quiz[count]
+  const [count, setCount] = useState(0)
+  const question = quiz.questions[count]
   const [none, setNone] = useState(true)
   const [exp, setExp] = useState(false) 
   const [options, setOptions] = useState(question.options.sort())
@@ -25,7 +25,7 @@ function App({ quiz, quizLength }) {
 
   function submitAnswer(event) {
     event.preventDefault()
-    if (selected === question.answer) {
+    if (selected === question.correct) {
       score = score.concat(1)
     } else {
       score = score.concat(0)
@@ -40,10 +40,10 @@ function App({ quiz, quizLength }) {
     setExp(false)
     document.getElementsByClassName("app")[0].classList = "app";
     document.getElementsByClassName("quiztop")[0].classList = "quiztop";
-    if (quizLength === count) {
+    if ((quizLength - 1) === count) {
       setResult(true)
     } else {
-      setOptions(quiz[count + 1].options.sort())
+      setOptions(quiz.questions[count + 1].options.sort())
       setCount(count + 1)
       setSelected("")
       setNone(true)
@@ -52,10 +52,10 @@ function App({ quiz, quizLength }) {
 
   function restartQuiz() {
     score = []
-    setCount(1)
+    setCount(0)
     setNone(true)
     setExp(false)
-    setOptions(quiz[1].options.sort())
+    setOptions(quiz.questions[0].options.sort())
     setResult(false)
     setSelected("")
   }
@@ -63,19 +63,19 @@ function App({ quiz, quizLength }) {
   return (
     <div className="app">
       <div className="fixed">
-        <QuizTop question={question} name={quiz[0].name} length={quizLength} currentQuestion={count} score={score} result={result}/>
+        <QuizTop question={question} name={quiz.name} length={quizLength} currentQuestion={count + 1} score={score} result={result}/>
         {!result && <form onSubmit={submitAnswer}>
           <Question func={selectedOption} options={options} 
-          selected={selected} explain={exp} correct={question.answer}/>
+          selected={selected} explain={exp} correct={question.correct}/>
           <button className={none ? "next" : (exp ? "none" : "next active")} type="submit">Submit</button>
         </form>}
         <div className="nextQuestion">
           <button className={exp ? "next active" : "none"} onClick={nextQuestion}>Next</button>
         </div>
-        <div className={exp ? "explain active" : "explain"}>
+        {question.desc.length !== 0 && <div className={exp ? "explain active" : "explain"}>
             <h2 className="explainHeader">Explanation:</h2>
-            <h2 className="explainContent">{question.explanation}</h2>
-        </div>
+            <h2 className="explainContent" dangerouslySetInnerHTML={{ __html:  question.desc }} />
+        </div>}
       </div>
       <div className={result ? "results active" : "results"}>
         <Results score={score.reduce((previousValue, currentValue) => previousValue + currentValue, 0)} length={quizLength} result={result}/>

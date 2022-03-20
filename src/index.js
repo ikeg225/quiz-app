@@ -9,13 +9,13 @@ import axios from 'axios';
 const url = new URL(window.location.href);
 const search = url.searchParams.get("search");
 
-axios.get('/data/' + search).then(response => {
-  const data = response.data
+axios.get('http://localhost:3001/data/' + search).then(response => {
+  const data = response.data[0][search]
   ReactDOM.render(
     <React.StrictMode>
       <div className="quizApp">
         <Header />
-        <App quiz={data} quizLength={data.length - 1} />
+        <App quiz={data} quizLength={data.questions.length} />
       </div>
     </React.StrictMode>,
     document.getElementById('root')
