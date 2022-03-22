@@ -1,7 +1,7 @@
 import '../css/quiztop.css'
 import { useRef, useLayoutEffect, useState } from 'react'
 
-export default function QuizTop({ question, name, length, currentQuestion, score, result }) {
+export default function QuizTop({ question, name, length, currentQuestion, score, result, images }) {
     const divRef = useRef();
     const[bars, setBars] = useState([]);
 
@@ -39,6 +39,7 @@ export default function QuizTop({ question, name, length, currentQuestion, score
                 {bars}
             </div>
             {!result && <h1 className="question">{question.title}</h1>}
+            {images && <img src={question.image} />}
         </div>
     )
 }

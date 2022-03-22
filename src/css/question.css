@@ -25,6 +25,21 @@
     border: 2px solid white;
     color: white;
     transition: 0.5s;
+    position: relative;
+    min-width: calc((var(--quiz-content-width) / 2) - 44px);
+}
+
+.selected.unselected:after {
+    content: '\A';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.3);
+    top: 0; 
+    bottom: 0;
+    left: 0; 
+    width: inherit;
+    -webkit-animation: filler 2s ease-in-out;
+    -moz-animation: filler 2s ease-in-out;
+    animation: filler 2s ease-in-out;
 }
 
 .selected:hover {
@@ -37,12 +52,40 @@
     border: 2px solid var(--global-green);
     color: var(--global-green);
     transition: 0.5s;
+    position: relative;
+}
+
+.selected.active.correct:after {
+    content: '\A';
+    position: absolute;
+    background: rgba(16, 198, 155, 0.3);
+    top: 0; 
+    bottom: 0;
+    left: 0; 
+    width: inherit;
+    -webkit-animation: filler 2s ease-in-out;
+    -moz-animation: filler 2s ease-in-out;
+    animation: filler 2s ease-in-out;
 }
 
 .selected.wrong {
     border: 2px solid var(--global-red);
     color: var(--global-red);
     transition: 0.5s;
+    position: relative;
+}
+
+.selected.wrong:after {
+    content: '\A';
+    position: absolute;
+    background: rgb(159, 36, 82, 0.3);
+    top: 0; 
+    bottom: 0;
+    left: 0; 
+    width: inherit;
+    -webkit-animation: filler 2s ease-in-out;
+    -moz-animation: filler 2s ease-in-out;
+    animation: filler 2s ease-in-out;
 }
 
 input[type="radio"] {
@@ -107,8 +150,28 @@ input[type="radio"]:checked::before {
     transform: scale(1);
 }
 
+@-webkit-keyframes filler {
+    0% {
+        width:0;
+    }
+}
+@-moz-keyframes filler {
+    0% {
+        width:0;
+    }
+}
+@keyframes filler {
+    0% {
+        width:0;
+    }
+}
+
 @media screen and (max-width: 425px) {
     .options {
         grid-template-columns: var(--quiz-content-width);
     }    
+
+    .selected {
+        min-width: calc(var(--quiz-content-width) - 44px);
+    }
 }

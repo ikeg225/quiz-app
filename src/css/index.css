@@ -44,7 +44,7 @@ h2 {
   width: 20%
 }
 
-.app {
+.trivia {
   background-color: black;
   width: 100%;
   display: flex;
@@ -56,12 +56,12 @@ h2 {
   transition: 0.5s;
 }
 
-.app.activeGreen {
+.trivia.activeGreen {
   transition: 0.5s;
   border-left: var(--border-width) solid var(--global-green);
 }
 
-.app.activeRed {
+.trivia.activeRed {
   transition: 0.5s;
   border-left: var(--border-width) solid var(--global-red);
 }
@@ -122,11 +122,11 @@ h2 {
     --border-width: 5px;
   }
   
-  .app, .app.activeGreen, .app.activeRed {
+  .trivia, .trivia.activeGreen, .trivia.activeRed {
     border-left: none;
   }
 
-  .app {
+  .trivia {
     height: 100%;
     overflow: visible;
     justify-content: flex-start;

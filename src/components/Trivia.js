@@ -1,25 +1,25 @@
-import Question from './components/Question';
-import Results from './components/Results';
-import QuizTop from './components/QuizTop';
+import Question from './Question';
+import Results from './Results';
+import QuizTop from './QuizTop';
 import { useState } from 'react';
-import './css/app.css';
+import '../css/trivia.css';
 
 let score = []
 
-function App({ quiz, quizLength }) {
+function Trivia({ quiz, quizLength }) {
   
   const [selected, setSelected] = useState("")
   const [count, setCount] = useState(0)
   const question = quiz.questions[count]
   const [none, setNone] = useState(true)
   const [exp, setExp] = useState(false) 
-  const [options, setOptions] = useState(question.options.sort())
+  const [options, setOptions] = useState(question.options)
   const [result, setResult] = useState(false)
 
   function selectedOption(event) {
     setSelected(event.target.value)
     setNone(false)
-    document.getElementsByClassName("app")[0].classList = "app activeGreen";
+    document.getElementsByClassName("trivia")[0].classList = "trivia activeGreen";
     document.getElementsByClassName("quiztop")[0].classList = "quiztop activeGreen";
   }
 
@@ -29,7 +29,7 @@ function App({ quiz, quizLength }) {
       score = score.concat(1)
     } else {
       score = score.concat(0)
-      document.getElementsByClassName("app")[0].classList = "app activeRed";
+      document.getElementsByClassName("trivia")[0].classList = "trivia activeRed";
       document.getElementsByClassName("quiztop")[0].classList = "quiztop activeRed";
     }
     setNone(false)
@@ -38,7 +38,7 @@ function App({ quiz, quizLength }) {
 
   function nextQuestion() {
     setExp(false)
-    document.getElementsByClassName("app")[0].classList = "app";
+    document.getElementsByClassName("trivia")[0].classList = "trivia";
     document.getElementsByClassName("quiztop")[0].classList = "quiztop";
     if ((quizLength - 1) === count) {
       setResult(true)
@@ -61,9 +61,9 @@ function App({ quiz, quizLength }) {
   }
 
   return (
-    <div className="app">
+    <div className="trivia">
       <div className="fixed">
-        <QuizTop question={question} name={quiz.name} length={quizLength} currentQuestion={count + 1} score={score} result={result}/>
+        <QuizTop question={question} name={quiz.name} length={quizLength} currentQuestion={count + 1} score={score} result={result} images={quiz.images} />
         {!result && <form onSubmit={submitAnswer}>
           <Question func={selectedOption} options={options} 
           selected={selected} explain={exp} correct={question.correct}/>
@@ -85,4 +85,4 @@ function App({ quiz, quizLength }) {
   );
 }
 
-export default App;
+export default Trivia;
