@@ -6,11 +6,11 @@ import '../css/trivia.css';
 
 let score = []
 
-function Trivia({ quiz, quizLength }) {
+function Trivia({ quiz, quizLength, randomized }) {
   
   const [selected, setSelected] = useState("")
   const [count, setCount] = useState(0)
-  const question = quiz.questions[count]
+  const question = quiz.questions[randomized[count]]
   const [none, setNone] = useState(true)
   const [exp, setExp] = useState(false) 
   const [options, setOptions] = useState(question.options)
@@ -43,7 +43,7 @@ function Trivia({ quiz, quizLength }) {
     if ((quizLength - 1) === count) {
       setResult(true)
     } else {
-      setOptions(quiz.questions[count + 1].options.sort())
+      setOptions(quiz.questions[randomized[count + 1]].options)
       setCount(count + 1)
       setSelected("")
       setNone(true)
@@ -55,7 +55,7 @@ function Trivia({ quiz, quizLength }) {
     setCount(0)
     setNone(true)
     setExp(false)
-    setOptions(quiz.questions[0].options.sort())
+    setOptions(quiz.questions[randomized[0]].options)
     setResult(false)
     setSelected("")
   }

@@ -27,6 +27,7 @@
     transition: 0.5s;
     position: relative;
     min-width: calc((var(--quiz-content-width) / 2) - 44px);
+    max-width: calc((var(--quiz-content-width) / 2) - 44px);
 }
 
 .selected.unselected:after {
@@ -173,5 +174,6 @@ input[type="radio"]:checked::before {
 
     .selected {
         min-width: calc(var(--quiz-content-width) - 44px);
+        max-width: calc(var(--quiz-content-width) - 44px);
     }
 }
