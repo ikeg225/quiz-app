@@ -28,3 +28,9 @@
 .resultImg {
     width: 80%;
 }
+
+@media screen and (max-width: 425px) {
+    .resultDetails.active h1 {
+        margin: 20px 30px;
+    }
+}

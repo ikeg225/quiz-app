@@ -1,6 +1,15 @@
 import '../css/question.css';
+import axios from 'axios';
 
-export default function Question({ func, options, selected, explain, correct }) {
+export default function Question({ func, options, selected, explain, correct, quizName, currQuestion }) {
+
+    function findCount(selection) {
+        for (let i = 0; i < options.length; i++) {
+            if (options[i][0] === selection) {
+                return options[i][1] + 1
+            }
+        }
+    }
 
     function percentage() {
         let totalSum = 0
@@ -14,11 +23,12 @@ export default function Question({ func, options, selected, explain, correct }) 
         }
         return percentageOptions
     }
-    const perc = percentage();
+    const perc = explain ? percentage() : [];
 
     function buttonClass(option) {
         if (explain) {
             if (option === correct) {
+                //axios.put('http://localhost:3001/data/' + quizName + '/questions/' + currQuestion + "/" + selected.replaceAll(" ", "%20") + "/"+ findCount(selected))
                 return "selected active correct"
             } else if (option === selected) {
                 return "selected wrong"
