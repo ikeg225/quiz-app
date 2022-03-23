@@ -8,207 +8,74 @@ app.use(express.static('build'))
 
 const PORT = process.env.PORT || 3001
 
-const howWellDoYouKnowTheLakers = [
-  {
-      name: "How Well Do You Know The Lakers?",
-      length: 20
-  },
-  {
-      num: 1,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 2,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 3,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 4,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 5,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 6,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 7,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 8,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 9,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 10,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 11,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 12,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 13,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 14,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 15,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 16,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 17,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 18,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  },
-  {
-      num: 19,
-      question: "What WNBA team did Kobe's father coach?",
-      picture: "",
-      options: ["Los Angeles Sparks", "Atlanta Dream", "Chicago Sky", "Washington Mystics"],
-      answer: "Los Angeles Sparks",
-      explanation: "Bryant was the head coach of the WNBA's Los Angeles Sparks from August 22, 2005, until April 4, 2007."
-  },
-  {
-      num: 20,
-      question: "What state was Kobe Bryant born in?",
-      picture: "",
-      options: ["Pennsylvania", "New York", "Georgia", "California"],
-      answer: "Pennsylvania",
-      explanation: "Kobe Bean Bryant was born on August 23, 1978, in Philadelphia, Pennsylvania."
-  }
-]
+const mongoose = require('mongoose')
+require('dotenv').config()
+const url = process.env.DB_URL
 
-const leBronJamesQuiz = [
-  {
-      name: "LeBron James Quiz",
-      length: 3
-  },
-  {
-      num: 1,
-      question: "What Was LeBron's Nickname When He First Entered The NBA?",
-      picture: "",
-      options: ["The Chosen One", "King James", "The Akron Hammer", "Jammin' James"],
-      answer: "The Chosen One",
-      explanation: "LeBron was dubbed the nickname 'The Chosen One' on a Sports Illustrated cover on February 18, 2002 by Grant Wahl. The nickname stuck with him as he entered the NBA. <br><br>Grant Wahl later told Jesse Washington of The Undefeated back in 2017:<br>'I was worried, that we were going to ruin the kid's life by putting him on the cover. It's one thing to do a feature on somebody inside the mag. But when you put a young kid on the cover and proclaim him 'The Chosen One' - maybe 'ruin his life' is a little strong, but it took things to such a level that I felt like his life was not going to be the same after that. The pressure would get a lot higher."
-  },
-  {
-      num: 2,
-      question: "In What Grade Did LeBron First Dunk A Basketball?",
-      picture: "",
-      options: ["8th Grade", "9th Grade", "7th Grade", "6th Grade"],
-      answer: "8th Grade",
-      explanation: "LeBron's first dunk came against the teachers of Riedinger Middle School in Akron.<br><br> The way LeBron occultized 'the dunk' invited the question: When did he first dunk a basketball?<br><br>His response was as reflexive as it would've been had you asked him his birthday.<br><br>'Eighth grade,' he said.<br><br>'Do you remember the time?' <br><br>'Absolutely.'<br><br>After a pregnant pause, James asked, 'You want the story?'<br><br>James then looked at his watch, for effect as much as the time. He and Wade had spent 12 and a half minutes behind the microphone. With an 8:00 p.m. start in Miami, deadlines for most of the print reporters had long since expired.<br><br>'Ah, okay.' <br><br>There's a collective laughter from the room.<br><br>'It was a middle school game. It was teachers versus students, and I got a fast break on the teachers.'<br><br>Wade couldn't contain his laughter.<br><br>'This isn't funny. This is serious, man! I went to Riedinger Middle School in Akron, Ohio! I got a fast break and this was the first time I ever even tried it. I said, 'I'm going for it.' When you first start dunking, you go to the very -- '<br><br>James gestured with his hand, reaching out to an imaginary goal. Illustrating something as bio-mechanical as a dunk with words is difficult, so Wade jumped in.<br><br>'All the way to the corner,' Wade said.<br><br>'All the way to the corner! The side of the rim. That's, like, the easiest one to get when you first start dunking.'<br><br>After all the descriptive flourishes, LeBron's voice drops a level and his tone becomes more earnest. He seems surprised by how much sentimentality the story evokes for him. Wade has stopped chuckling.<br><br>'It was definitely ... It was an unbelievable moment for myself when I realized I could dunk.'<br><br>Did the teachers fail him?<br><br>'Nah, they knew better.'"
-  },
-  {
-      num: 3,
-      question: "How Many Times Has LeBron Won The NBA MVP?",
-      picture: "",
-      options: ["4 Times", "3 Times", "5 Times", "6 Times"],
-      answer: "4 Times",
-      explanation: "LeBron has 4 MVPs: 2008-09, 2009-10, 2011-12, and 2012-13."
-  }
-]
+mongoose.connect(url)
+
+const quizSchema = new mongoose.Schema({
+  _id: String,
+  name: String,
+  type: String,
+  images: Boolean,
+  plays: Number,
+  shuffle: Boolean,
+  scores: [Number],
+  questions: [{
+    id: Number,
+    title: String,
+    desc: String,
+    options: [{
+      0: String,
+      1: Number
+    }],
+    correct: String
+  }]
+})
+
+const Quiz = mongoose.model('quiz', quizSchema)
 
 app.get('/data/:id', (request, response) => {
-  const id = request.params.id;
-  response.json(eval(id))
+    const id = request.params.id
+    Quiz.find({ _id: id }).then(quiz => {
+        response.json(quiz)
+    })
+})
+
+app.put('/data/:id/plays/:value', (request, response) => {
+  const id = request.params.id
+  const value = request.params.value
+
+  Quiz.updateOne({ _id: id }, {$set: {"plays": value}}, function(err, doc) {
+      response.json(doc);
+  });
+})
+
+app.post('/data/:id/scores/:value', (request, response) => {
+  const id = request.params.id
+  const value = request.params.value
+  Quiz.findOneAndUpdate({ _id: id }, {$push: {"scores": value}}, function(err, doc) {
+      response.end();
+  });
+})
+
+app.put('/data/:id/questions/:num/:answer/:value', (request, response) => {
+  const id = request.params.id
+  const num = request.params.num
+  const value = request.params.value
+  const answer = request.params.answer.replaceAll("%20", " ")
+
+  Quiz.findOneAndUpdate(
+    { _id: id }, 
+    {$set: {"questions.$[e1].options.$[e2].1": value}},
+    {arrayFilters: [
+      {"e1.id": num},
+      {"e2.0": answer}
+    ]}, 
+    function(err, doc) {
+      response.end()
+  });
 })
 
 app.listen(PORT, () => {
