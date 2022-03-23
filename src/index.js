@@ -33,8 +33,8 @@ axios.get('http://localhost:3001/data/' + search).then(response => {
     randomize(enumArray)
   }
 
-  //axios.put('http://localhost:3001/data/' + search + '/plays/' + (data.plays + 1))
-  
+  axios.put('http://localhost:3001/data/' + search + '/plays/' + (data.plays + 1))
+
   ReactDOM.render(
     <React.StrictMode>
       <div className="quizApp">

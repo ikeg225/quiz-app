@@ -63,7 +63,8 @@ function Trivia({ quiz, quizLength, randomized }) {
   return (
     <div className="trivia">
       <div className="fixed">
-        <QuizTop question={question} name={quiz.name} length={quizLength} currentQuestion={count + 1} score={score} result={result} images={quiz.images} />
+        <QuizTop question={question} name={quiz.name} length={quizLength} currentQuestion={count + 1} score={score} 
+        result={result} images={quiz.images} />
         {!result && <form onSubmit={submitAnswer}>
           <Question func={selectedOption} options={options} quizName={quiz._id}
           selected={selected} explain={exp} correct={question.correct} currQuestion={randomized[count]}/>
@@ -78,7 +79,8 @@ function Trivia({ quiz, quizLength, randomized }) {
         </div>}
       </div>
       <div className={result ? "results active" : "results"}>
-        <Results score={score.reduce((previousValue, currentValue) => previousValue + currentValue, 0)} length={quizLength} result={result} scores={quiz.scores} />
+        <Results score={score.reduce((previousValue, currentValue) => previousValue + currentValue, 0)} 
+        length={quizLength} result={result} scores={quiz.scores} quizName={quiz._id} />
         <button className={result ? "next active" : "none"} onClick={restartQuiz}>Play Again</button>
       </div>
     </div>

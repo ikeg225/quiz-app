@@ -1,10 +1,25 @@
 import '../css/results.css';
 import good from '../images/good.gif';
 import bad from '../images/bad.gif';
+import axios from 'axios';
+import React, { useEffect, useRef } from 'react';
 
-export default function Results({score, length, result, scores}) {
-    
+export default function Results({score, length, result, scores, quizName}) {
+
+    const initialRender = useRef(true);
+
+    useEffect(() => {
+        if (initialRender.current) {
+            initialRender.current = false;
+        } else if (!initialRender.current && result) {
+            axios.post('http://localhost:3001/data/' + quizName + '/scores/' + score)
+        }
+    }, [result])
+
     function getPercentile(arr, num) {
+        arr.sort(function(a, b) {
+            return a - b;
+        });
         if (arr.length === 0) {
             return "99.99"
         } else {
@@ -15,6 +30,7 @@ export default function Results({score, length, result, scores}) {
             return ((index / arr.length) * 100).toFixed(2)
         }
     }
+
     const percentile = result ? getPercentile(scores, score) : -1;
 
     return (

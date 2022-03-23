@@ -1,7 +1,18 @@
 import '../css/question.css';
 import axios from 'axios';
+import React, { useEffect, useRef } from 'react';
 
 export default function Question({ func, options, selected, explain, correct, quizName, currQuestion }) {
+
+    const initialRender = useRef(true);
+
+    useEffect(() => {
+        if (initialRender.current) {
+            initialRender.current = false;
+        } else if (!initialRender.current && explain) {
+            axios.put('http://localhost:3001/data/' + quizName + '/questions/' + currQuestion + "/" + selected.replaceAll(" ", "%20") + "/"+ findCount(selected))
+        }
+    }, [explain])
 
     function findCount(selection) {
         for (let i = 0; i < options.length; i++) {
@@ -28,7 +39,6 @@ export default function Question({ func, options, selected, explain, correct, qu
     function buttonClass(option) {
         if (explain) {
             if (option === correct) {
-                //axios.put('http://localhost:3001/data/' + quizName + '/questions/' + currQuestion + "/" + selected.replaceAll(" ", "%20") + "/"+ findCount(selected))
                 return "selected active correct"
             } else if (option === selected) {
                 return "selected wrong"
