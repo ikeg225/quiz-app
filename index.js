@@ -73,7 +73,7 @@ app.put('/data/:id/questions/:num/:answer/:value', (request, response) => {
   const id = request.params.id
   const num = request.params.num
   const value = request.params.value
-  const answer = request.params.answer.replaceAll("%20", " ")
+  const answer = request.params.answer.replace(new RegExp("%20", 'g'), " ")
 
   Quiz.findOneAndUpdate(
     { _id: id }, 
