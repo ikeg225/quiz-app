@@ -29,7 +29,7 @@
     width: 80%;
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 650px) {
     .resultDetails.active h1 {
         margin: 20px 30px;
     }

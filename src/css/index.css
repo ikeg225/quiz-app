@@ -108,7 +108,7 @@ h2 {
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 650px) {
   html {
     background-color: black;
   }

@@ -98,7 +98,7 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 650px) {
     .quiztop {
         padding-top: 20px;
         background-color: white;

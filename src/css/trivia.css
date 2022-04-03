@@ -83,7 +83,7 @@ form {
     font-size: var(--header-option-button-explain);
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 650px) {
     form {
         padding-top: 30px;
     }
