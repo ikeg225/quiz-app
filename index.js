@@ -21,7 +21,6 @@ const quizSchema = new mongoose.Schema({
   images: Boolean,
   plays: Number,
   shuffle: Boolean,
-  scores: [Number],
   questions: [{
     id: Number,
     title: String,
@@ -31,7 +30,8 @@ const quizSchema = new mongoose.Schema({
       1: Number
     }],
     correct: String
-  }]
+  }],
+  scores: [Number]
 })
 
 const Quiz = mongoose.model('quiz', quizSchema)
@@ -52,13 +52,22 @@ app.put('/data/:id/plays/:value', (request, response) => {
   });
 })
 
-app.post('/data/:id/scores/:value', (request, response) => {
+app.put('/data/:id/scores/:value', (request, response) => {
   const id = request.params.id
-  const value = request.params.value
-  Quiz.findOneAndUpdate({ _id: id }, {$push: {"scores": value}}, function(err, doc) {
-      response.end();
+  const value = request.params.value.split("-")
+
+  Quiz.updateOne({ _id: id }, {$set: {"scores": value}}, function(err, doc) {
+      response.json(doc);
   });
 })
+
+// app.post('/data/:id/scores/:value', (request, response) => {
+//   const id = request.params.id
+//   const value = request.params.value
+//   Quiz.findOneAndUpdate({ _id: id }, {$push: {"scores": value}}, function(err, doc) {
+//       response.end();
+//   });
+// })
 
 app.put('/data/:id/questions/:num/:answer/:value', (request, response) => {
   const id = request.params.id
