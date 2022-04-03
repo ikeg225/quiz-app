@@ -10,7 +10,7 @@ export default function Question({ func, options, selected, explain, correct, qu
         if (initialRender.current) {
             initialRender.current = false;
         } else if (!initialRender.current && explain) {
-            axios.put('http://localhost:3001/data/' + quizName + '/questions/' + currQuestion + "/" + selected.replaceAll(" ", "%20") + "/"+ findCount(selected))
+            axios.put('/data/' + quizName + '/questions/' + currQuestion + "/" + selected.replaceAll(" ", "%20") + "/"+ findCount(selected))
         }
     }, [explain])
 

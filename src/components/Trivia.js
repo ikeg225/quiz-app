@@ -59,7 +59,7 @@ function Trivia({ quiz, quizLength, randomized }) {
     setResult(false)
     setSelected("")
   }
-
+  
   return (
     <div className="trivia">
       <div className="fixed">

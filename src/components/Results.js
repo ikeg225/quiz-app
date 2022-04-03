@@ -2,36 +2,35 @@ import '../css/results.css';
 import good from '../images/good.gif';
 import bad from '../images/bad.gif';
 import axios from 'axios';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 export default function Results({score, length, result, scores, quizName}) {
 
     const initialRender = useRef(true);
+    const [percentile, setPercentile] = useState("10.00");
+
+    function getPercentile(arr, num) {
+        const totalScores = arr.reduce((a, b) => a + b, 0)
+        if (totalScores === 0 || num === arr.length - 1) {
+            return "99.99"
+        } else {
+            let betterThan = 0;
+            for (let i = 0; i < num; i++) {
+                betterThan = betterThan + arr[i]
+            }
+            return ((betterThan / totalScores) * 100).toFixed(2)
+        }
+    }
 
     useEffect(() => {
         if (initialRender.current) {
             initialRender.current = false;
         } else if (!initialRender.current && result) {
-            axios.post('http://localhost:3001/data/' + quizName + '/scores/' + score)
+            setPercentile(getPercentile(scores, score))
+            scores[score] += 1
+            axios.put('/data/' + quizName + '/scores/' + scores.toString().replaceAll(",", "-"))
         }
     }, [result])
-
-    function getPercentile(arr, num) {
-        arr.sort(function(a, b) {
-            return a - b;
-        });
-        if (arr.length === 0) {
-            return "99.99"
-        } else {
-            const index = arr.findIndex((currentNum) => num < currentNum);
-            if (index === -1) {
-                return "99.99"
-            }
-            return ((index / arr.length) * 100).toFixed(2)
-        }
-    }
-
-    const percentile = result ? getPercentile(scores, score) : -1;
 
     return (
         <div className={result ? "resultDetails active" : "resultDetails"}>

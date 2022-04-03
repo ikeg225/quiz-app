@@ -24,7 +24,7 @@ function randomize(a) {
   return a;
 }
 
-axios.get('http://localhost:3001/data/' + search).then(response => {
+axios.get('/data/' + search).then(response => {
   const data = response.data[0];
   const length = data.questions.length;
   const enumArray = createEnumArray(length - 1);
@@ -33,7 +33,7 @@ axios.get('http://localhost:3001/data/' + search).then(response => {
     randomize(enumArray)
   }
 
-  axios.put('http://localhost:3001/data/' + search + '/plays/' + (data.plays + 1))
+  axios.put('/data/' + search + '/plays/' + (data.plays + 1))
 
   ReactDOM.render(
     <React.StrictMode>
