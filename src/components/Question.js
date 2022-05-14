@@ -57,7 +57,7 @@ export default function Question({ func, options, selected, explain, correct, qu
         <div className="question">
             <div className="options">
                 {options.map(option => 
-                    <label key={option[0]} className={buttonClass(option[0])} style={{width: perc[option[0]] + "%"}}>
+                    <label key={currQuestion + option[0]} className={buttonClass(option[0])} style={{width: perc[option[0]] + "%"}}>
                         <input type="radio" name="question" value={option[0]}
                         onClick={func} disabled={explain ? "disabled" : ""}/> 
                         {option[0]}

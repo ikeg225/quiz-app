@@ -71,36 +71,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-    .currentQuestion {
-        font-size: 28px;
-    }
-
-    .questionNumber {
-        font-size: 24px;
-    }
-
-    .quizName {
-        line-height: 22px;
-    }
-}
-
-@media screen and (max-width: 768px) {
-    .currentQuestion {
-        font-size: 26px;
-    }
-
-    .questionNumber {
-        font-size: 22px;
-    }
-
-    .progressBar div {
-        height: 4px;
-    }
-}
-
-@media screen and (max-width: 650px) {
     .quiztop {
-        padding-top: 20px;
         background-color: white;
         width: 100%;
         align-items: center;

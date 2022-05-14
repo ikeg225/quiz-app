@@ -13,15 +13,14 @@ export default function Header() {
                 </div>
                 <div className="links">
                     <li className="hover-anim"><a href="https://sportsquiz.org/" target="_blank" rel="noopener noreferrer">Home</a></li>
-                    <li className="hover-anim"><a href="https://sportsquiz.org/sports/" target="_blank" rel="noopener noreferrer">Sports</a></li>
-                    <li className="hover-anim"><a href="https://sportsquiz.org/basketball/" target="_blank" rel="noopener noreferrer">Basketball</a></li>
-                    <li className="hover-anim"><a href="https://sportsquiz.org/newsletter/" target="_blank" rel="noopener noreferrer">Newsletter</a></li>
+                    <li className="hover-anim"><a href="https://sportsquiz.org/blog/" target="_blank" rel="noopener noreferrer">Blog</a></li>
                     <li className="hover-anim"><a href="https://sportsquiz.org/contact/" target="_blank" rel="noopener noreferrer">Contact Us</a></li>
+                    <li className="hover-anim"><a href="https://sportsquiz.org/trivia-questions/" target="_blank" rel="noopener noreferrer">Trivia Questions</a></li>
                 </div>
                 <h2>© Sports Quiz {year}</h2>
             </div>
             <div className="logo mobile">
-                <a href="https://sportsquiz.org/" target="_blank" rel="noopener noreferrer"><img src={mobileLogo} alt="Sports Quiz Logo" width="50%" /></a>
+                <a href="https://sportsquiz.org/" target="_blank" rel="noopener noreferrer"><img src={mobileLogo} alt="Sports Quiz Logo" /></a>
             </div>
         </>
     )

@@ -8,6 +8,11 @@
   src: url("../fonts/Roboto-Regular.ttf");
 }
 
+@font-face {
+  font-family: "Oswald";
+  src: url("../fonts/Oswald-Bold.ttf");
+}
+
 :root {
   --quiz-content-width: 700px;
   --global-green: #10C69B;
@@ -92,34 +97,18 @@ h2 {
 
 @media screen and (max-width: 1024px) {
   :root {
-    --quiz-content-width: 500px;
-    --header-option-button-explain: 16px;
-    --question-explainHead: 26px;
-    --border-width: 8px;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  :root {
-    --quiz-content-width: 450px;
+    --quiz-content-width: 600px;
     --header-option-button-explain: 14px;
     --question-explainHead: 22px;
     --border-width: 7px;
   }
-}
 
-@media screen and (max-width: 650px) {
   html {
     background-color: black;
   }
   
   .quizApp {
     flex-direction: column;
-  }
-
-  :root {
-    --quiz-content-width: 300px;
-    --border-width: 5px;
   }
   
   .trivia, .trivia.activeGreen, .trivia.activeRed {
@@ -130,6 +119,26 @@ h2 {
     height: 100%;
     overflow: visible;
     justify-content: flex-start;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --quiz-content-width: 500px;
+    --border-width: 5px;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  :root {
+    --quiz-content-width: 400px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  :root {
+    --quiz-content-width: 300px;
+    --border-width: 5px;
   }
 }
 
