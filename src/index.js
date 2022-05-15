@@ -4,6 +4,10 @@ import './css/index.css';
 import Trivia from './components/Trivia';
 import Header from './components/Header';
 import axios from 'axios';
+import ReactGA from 'react-ga';
+
+ReactGA.initialize('UA-171824789-1');
+ReactGA.pageview(window.location.pathname + window.location.search);
 
 const url = new URL(window.location.href);
 const search = url.searchParams.get("search");
